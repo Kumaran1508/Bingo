@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Homepage"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context=".Loginpage">
 
-    <TextView
+
+    <com.google.android.gms.common.SignInButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="welcome to home page"
-        android:textAllCaps="true"
-        android:textColor="@color/teal_200"/>
+        android:id="@+id/google_sign_in"
+        />
+
+
 </LinearLayout>
