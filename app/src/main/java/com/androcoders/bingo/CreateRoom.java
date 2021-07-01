@@ -29,7 +29,5 @@ public class CreateRoom extends AppCompatActivity {
         start=findViewById(R.id.start_btn);
 
         Toast.makeText(this, ""+getIntent().getStringExtra("id"), Toast.LENGTH_SHORT).show();
-
-
     }
 }
