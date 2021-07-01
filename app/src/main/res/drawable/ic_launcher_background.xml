@@ -8,6 +8,6 @@
       android:scaleY="1.8"
       android:translateX="-43.2"
       android:translateY="-43.2">
-     
+    <path android:fillColor="#00ffffff"></path>
   </group>
 </vector>

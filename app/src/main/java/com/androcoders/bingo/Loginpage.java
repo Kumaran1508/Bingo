@@ -58,7 +58,6 @@ public class Loginpage extends AppCompatActivity {
             }
 
         });
-        signInButton.performClick();
     }
 
     @Override
