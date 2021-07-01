@@ -5,12 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Homepage"
-    android:gravity="center">
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@color/lighty_blue">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="welcome to home page"
-        android:textAllCaps="true"
-        android:textColor="@color/teal_200"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"
+       android:layout_gravity="right"
+       android:orientation="vertical"
+
+       >
+       <ImageView
+           android:layout_width="24dp"
+           android:layout_height="24dp"
+           android:src="@drawable/ic_baseline_menu_24"
+           android:layout_gravity="right"
+           android:layout_margin="20dp"
+           android:id="@+id/ham_menu"/>
+
+   </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bingologo"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/yellow"
+            android:text="CREATE ROOM"
+            android:id="@+id/create_btn"
+            android:width="141dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/yellow"
+            android:text="JOIN ROOM"
+            android:width="141dp"
+            android:id="@+id/join_btn"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:layout_marginTop="190dp"
+            android:text="EXIT"
+            android:width="141dp"
+            android:id="@+id/exit_btn"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Version 1.0.0"
+            android:layout_marginTop="90dp"/>
+    </LinearLayout>
 </LinearLayout>
