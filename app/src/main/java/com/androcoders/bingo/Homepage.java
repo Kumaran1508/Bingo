@@ -22,7 +22,8 @@ public class Homepage extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent().setClass(getApplicationContext(),CreateRoom.class));
+                //Intent intent=new Intent()
+                startActivity(getIntent().setClass(getApplicationContext(),CreateRoom.class));
             }
         });
 

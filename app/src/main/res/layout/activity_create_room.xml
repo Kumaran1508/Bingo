@@ -32,7 +32,8 @@
         android:backgroundTint="@color/red"
         android:text="Start"
         android:layout_gravity="center"
-        android:width="141dp"/>
+        android:width="141dp"
+        android:id="@+id/start_btn"/>
 
 
 
