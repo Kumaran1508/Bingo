@@ -66,14 +66,16 @@ public class Loginpage extends AppCompatActivity {
         super.onStart();
 
 
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        AuthCredential credential = GoogleAuthProvider.getCredential(account.getId(),accessToken);
-        firebaseAuth.signInWithCredential(credential);
 
 
         if (firebaseAuth.getCurrentUser()!=null){
+            GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+            AuthCredential credential = GoogleAuthProvider.getCredential(account.getId(),accessToken);
+            firebaseAuth.signInWithCredential(credential);
+
             String user_name = account.getDisplayName();
             String prof_url;
+
 
             try {
                 prof_url = account.getPhotoUrl().toString();
