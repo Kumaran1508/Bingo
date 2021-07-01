@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         task=new TimerTask() {
             @Override
             public void run() {
-          intent.setClass(getApplicationContext(),Homepage.class);
+          intent.setClass(getApplicationContext(),Loginpage.class);
           startActivity(intent);
           finish();
             }
