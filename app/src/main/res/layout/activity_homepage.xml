@@ -65,6 +65,13 @@
             android:text="EXIT"
             android:width="141dp"
             android:id="@+id/exit_btn"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="141dp"
+            android:text="Log out"
+            android:backgroundTint="@color/red"
+            android:id="@+id/logout_btn"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
