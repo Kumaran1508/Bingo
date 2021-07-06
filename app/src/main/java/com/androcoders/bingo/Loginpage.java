@@ -28,6 +28,7 @@ public class Loginpage extends AppCompatActivity {
     private static final int RC_SIGN_IN = 100;
     private static final String TAG = "Sign In";
     private static final String accessToken = "1058282051885-grphss423vighe3cr5pfeu1c7roefgk0.apps.googleusercontent.com";
+    private static   boolean AUTO_SIGNIN = true;
     private SignInButton signInButton;
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -64,11 +65,15 @@ public class Loginpage extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        try{
+            AUTO_SIGNIN=getIntent().getBooleanExtra("auto",true);
+        }
+        catch (Exception e){
 
+        }
 
-
-        if (firebaseAuth.getCurrentUser()!=null){
-            GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        if (account!=null && AUTO_SIGNIN){
             AuthCredential credential = GoogleAuthProvider.getCredential(account.getId(),accessToken);
             firebaseAuth.signInWithCredential(credential);
 

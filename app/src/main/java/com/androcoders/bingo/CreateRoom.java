@@ -46,10 +46,10 @@ public class CreateRoom extends AppCompatActivity {
 
         HashMap<String,Object> room = new HashMap<>();
         room.put("isStarted",false);
-        room.put("owner",);
+        room.put("owner",account.getId());
 
 
-        firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).set()
+        firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).set(room);
 
     }
     int generatekey() {
