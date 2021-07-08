@@ -1,10 +1,12 @@
 package com.androcoders.bingo;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +17,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -32,7 +36,7 @@ public class CreateRoom extends AppCompatActivity {
     private boolean uniquekey = false;
     private int roomkey = 0;
     private ArrayList<Player> players_list=new ArrayList<>();
-
+    private PlayerAdaptor adaptor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,7 @@ public class CreateRoom extends AppCompatActivity {
 
         Toast.makeText(this, ""+getIntent().getStringExtra("id"), Toast.LENGTH_SHORT).show();
 
-        PlayerAdaptor adaptor = new PlayerAdaptor(getApplicationContext(),players_list);
+        adaptor = new PlayerAdaptor(getApplicationContext(),players_list);
         players.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         players.setAdapter(adaptor);
         players.setHasFixedSize(true);
@@ -56,6 +60,34 @@ public class CreateRoom extends AppCompatActivity {
         super.onStart();
 
         generateroom();
+
+
+    }
+
+    void addPlayersListener(){
+        firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                players_list.clear();
+                for (DocumentSnapshot document: queryDocumentSnapshots) {
+                    Player player= new Player(document.getString("player_name"),document.getId());
+                    players_list.add(player);
+                }
+                adaptor.notifyDataSetChanged();
+            }
+        });
+
+        firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                players_list.clear();
+                for (DocumentSnapshot document: value) {
+                    Player player= new Player(document.getString("player_name"),document.getId());
+                    players_list.add(player);
+                }
+                adaptor.notifyDataSetChanged();
+            }
+        });
     }
 
     void createRoom(){
@@ -63,8 +95,23 @@ public class CreateRoom extends AppCompatActivity {
         HashMap<String,Object> room = new HashMap<>();
         room.put("isStarted",false);
         room.put("owner",account.getId());
+        room.put("current_turn",account.getId());
 
         firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).set(room);
+
+        HashMap<String,Object> owner=new HashMap<>();
+        owner.put("bingo",0);
+        owner.put("player_name",account.getDisplayName());
+        owner.put("score",0);
+
+        firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").document(account.getId()).set(owner).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                addPlayersListener();
+            }
+        });
+
+
     }
 
     int generatekey() {
@@ -81,16 +128,21 @@ public class CreateRoom extends AppCompatActivity {
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 roomkey = generatekey();
                 while(!uniquekey) {
+                    int pos = 0;
                     for (DocumentSnapshot document : queryDocumentSnapshots) {
                         int id = Integer.valueOf(document.getId());
                         if (id == roomkey) {
                             roomkey = generatekey();
-                            return;
+                            break;
                         }
+                        if (pos==queryDocumentSnapshots.size()-1){
+                            uniquekey=true;
+                            room_id.setText(room_id.getText().toString()+"\n"+String.valueOf(roomkey));
+                            createRoom();
+                        }
+                        pos++;
                     }
-                    uniquekey = true;
-                    room_id.setText(room_id.getText().toString()+"\n"+String.valueOf(roomkey));
-                    createRoom();
+
                 }
             }
         });
