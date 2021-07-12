@@ -15,8 +15,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Homepage extends AppCompatActivity {
 
-    private Button create;
+    private Button create,join;
     private Button logout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,16 @@ public class Homepage extends AppCompatActivity {
 
         create=findViewById(R.id.create_btn);
         logout=findViewById(R.id.logout_btn);
+        join=findViewById(R.id.join_btn);
+
+        join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent();
+                intent.setClass(getApplicationContext(),JoinRoomActivity.class);
+                startActivity(intent);
+            }
+        });
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
