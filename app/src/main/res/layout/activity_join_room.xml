@@ -6,19 +6,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".JoinRoomActivity">
+    tools:context=".JoinRoomActivity"
+    android:background="@color/lighty_blue">
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Join room"
+        android:textSize="40dp"
+        android:paddingBottom="11dp"
+        android:fontFamily="casual"/>
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:hint="Enter Code"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
         android:inputType="number"
+        android:width="150dp"
+        android:background="@drawable/editable_bg"
         android:id="@+id/roomcode"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Join"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/new_button"
+        android:theme="@style/Theme.Bingo"
+        style="@style/Theme.Bingo"
         android:id="@+id/join"/>
 
 

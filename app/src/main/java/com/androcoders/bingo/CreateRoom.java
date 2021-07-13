@@ -58,8 +58,18 @@ public class CreateRoom extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        if(getIntent().getBooleanExtra("create",true))
+        {
+            generateroom();
+        }
+        else
+        {
+            roomkey=getIntent().getIntExtra("room_key",0);
+            addPlayersListener();
+            room_id.setText(room_id.getText()+"\n"+roomkey);
+        }
 
-        generateroom();
+
 
 
     }

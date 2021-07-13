@@ -50,6 +50,8 @@ public class JoinRoomActivity extends AppCompatActivity {
                          if(!documentSnapshot.getBoolean("isStarted")) {
                              firebaseFirestore.collection("rooms").document(code.getText().toString()).collection("players").document(account.getId()).set(player);
                              Intent intent = new Intent();
+                             intent.putExtra("create",false);
+                             intent.putExtra("room_key",Integer.valueOf(code.getText().toString()));
                              intent.setClass(getApplicationContext(),CreateRoom.class);
                              startActivity(intent);
                          }

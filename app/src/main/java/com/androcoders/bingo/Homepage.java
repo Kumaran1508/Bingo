@@ -41,6 +41,7 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Intent intent=new Intent()
+                getIntent().putExtra("create",true);
                 startActivity(getIntent().setClass(getApplicationContext(),CreateRoom.class));
             }
         });
