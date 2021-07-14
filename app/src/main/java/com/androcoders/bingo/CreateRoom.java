@@ -49,9 +49,10 @@ public class CreateRoom extends AppCompatActivity {
         players=findViewById(R.id.players_recycler);
         start=findViewById(R.id.start_btn);
 
-        Toast.makeText(this, ""+getIntent().getStringExtra("id"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, ""+getIntent().getStringExtra("id"), Toast.LENGTH_SHORT).show();
 
-
+        start.setEnabled(false);
+        
     }
 
     @Override
@@ -101,6 +102,33 @@ public class CreateRoom extends AppCompatActivity {
                     players_list.add(player);
                 }
                 adaptor.notifyDataSetChanged();
+
+                if (players_list.size()>1)
+                    start.setEnabled(true);
+                else
+                    start.setEnabled(false);
+            }
+        });
+
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseFirestore.collection("rooms")
+                        .document(String.valueOf(roomkey))
+                        .update("isStarted",true);
+            }
+        });
+
+        firebaseFirestore.collection("rooms")
+                .document(String.valueOf(roomkey))
+                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(value.getBoolean("isStarted")){
+                    getIntent().setClass(getApplicationContext(),GameActivity.class);
+                    startActivity(getIntent());
+                    finish();
+                }
             }
         });
     }
