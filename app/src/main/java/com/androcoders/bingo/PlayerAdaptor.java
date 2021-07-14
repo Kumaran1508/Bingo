@@ -15,10 +15,12 @@ import java.util.ArrayList;
 public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder> {
   private  Context context;
   private ArrayList<Player> list;
+  private boolean isOwner;
 
-    public PlayerAdaptor(Context context, ArrayList<Player> list) {
+    public PlayerAdaptor(Context context, ArrayList<Player> list,boolean isOwner) {
         this.context = context;
         this.list = list;
+        this.isOwner=isOwner;
     }
 
     @NonNull
@@ -50,6 +52,8 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
             playername=itemView.findViewById(R.id.player_name);
             kickbutton =itemView.findViewById(R.id.click_btn);
 
+            if (!isOwner)
+                kickbutton.setVisibility(View.GONE);
 
         }
     }

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +35,7 @@ public class JoinRoomActivity extends AppCompatActivity {
          code=findViewById(R.id.roomcode);
          join=findViewById(R.id.join);
         account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+        join.setEnabled(false);
 
 
         join.setOnClickListener(new View.OnClickListener() {
@@ -43,31 +46,52 @@ public class JoinRoomActivity extends AppCompatActivity {
                  player.put("player_name",account.getDisplayName());
                  player.put("score",0);
 
-
                  firebaseFirestore.collection("rooms").document(code.getText().toString()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                      @Override
                      public void onSuccess(DocumentSnapshot documentSnapshot) {
-                         if(!documentSnapshot.getBoolean("isStarted")) {
-                             firebaseFirestore.collection("rooms").document(code.getText().toString()).collection("players").document(account.getId()).set(player);
-                             Intent intent = new Intent();
-                             intent.putExtra("create",false);
-                             intent.putExtra("room_key",Integer.valueOf(code.getText().toString()));
-                             intent.setClass(getApplicationContext(),CreateRoom.class);
-                             startActivity(intent);
+                         try {
+                             if(!documentSnapshot.getBoolean("isStarted")) {
+                                 firebaseFirestore.collection("rooms").document(code.getText().toString()).collection("players").document(account.getId()).set(player);
+                                 Intent intent = new Intent();
+                                 intent.putExtra("create",false);
+                                 intent.putExtra("room_key",Integer.valueOf(code.getText().toString()));
+                                 intent.setClass(getApplicationContext(),CreateRoom.class);
+                                 startActivity(intent);
+                             }
+                             else{
+                                 Toast.makeText(JoinRoomActivity.this, "You can't join now, The game has already started ", Toast.LENGTH_LONG).show();
+                             }
                          }
-                         else{
-                             Toast.makeText(JoinRoomActivity.this, "You can't join now, The game has already started ", Toast.LENGTH_LONG).show();
+                         catch(Exception e){
+                             Toast.makeText(JoinRoomActivity.this, "Room does not exist", Toast.LENGTH_SHORT).show();
                          }
-
-                     }
-                 }).addOnFailureListener(new OnFailureListener() {
-                     @Override
-                     public void onFailure(@NonNull Exception e) {
-                         Toast.makeText(JoinRoomActivity.this, "Room does not exist", Toast.LENGTH_SHORT).show();
 
                      }
                  });
+
+
              }
-         });
+        });
+
+        code.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().length() == 5) {
+                    join.setEnabled(true);
+                } else {
+                    join.setEnabled(false);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 }

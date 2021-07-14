@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.TextView;
@@ -37,6 +38,7 @@ public class CreateRoom extends AppCompatActivity {
     private int roomkey = 0;
     private ArrayList<Player> players_list=new ArrayList<>();
     private PlayerAdaptor adaptor;
+    private boolean isOwner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +51,7 @@ public class CreateRoom extends AppCompatActivity {
 
         Toast.makeText(this, ""+getIntent().getStringExtra("id"), Toast.LENGTH_SHORT).show();
 
-        adaptor = new PlayerAdaptor(getApplicationContext(),players_list);
-        players.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        players.setAdapter(adaptor);
-        players.setHasFixedSize(true);
+
     }
 
     @Override
@@ -61,16 +60,22 @@ public class CreateRoom extends AppCompatActivity {
         if(getIntent().getBooleanExtra("create",true))
         {
             generateroom();
+            isOwner=true;
         }
         else
         {
             roomkey=getIntent().getIntExtra("room_key",0);
             addPlayersListener();
-            room_id.setText(room_id.getText()+"\n"+roomkey);
+            room_id.setText("Room Id\n"+roomkey);
+            isOwner=false;
+            start.setVisibility(View.GONE);
         }
 
 
-
+        adaptor = new PlayerAdaptor(getApplicationContext(),players_list,isOwner);
+        players.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        players.setAdapter(adaptor);
+        players.setHasFixedSize(true);
 
     }
 

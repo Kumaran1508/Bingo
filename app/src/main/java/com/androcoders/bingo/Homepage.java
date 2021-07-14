@@ -31,9 +31,7 @@ public class Homepage extends AppCompatActivity {
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent();
-                intent.setClass(getApplicationContext(),JoinRoomActivity.class);
-                startActivity(intent);
+                startActivity(getIntent().setClass(getApplicationContext(),JoinRoomActivity.class));
             }
         });
 
@@ -49,9 +47,8 @@ public class Homepage extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent();
-                intent.setClass(getApplicationContext(),Loginpage.class);
-                intent.putExtra("auto",false);
+                getIntent().setClass(getApplicationContext(),Loginpage.class);
+                getIntent().putExtra("auto",false);
                 FirebaseAuth auth= FirebaseAuth.getInstance();
                 GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                         .requestEmail()
@@ -61,7 +58,7 @@ public class Homepage extends AppCompatActivity {
 
                 GoogleSignInClient user = GoogleSignIn.getClient(getApplicationContext(),gso);
                 user.signOut();
-                startActivity(intent);
+                startActivity(getIntent());
                 finish();
             }
         });
