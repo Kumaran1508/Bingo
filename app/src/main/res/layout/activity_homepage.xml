@@ -1,99 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Homepage"
-    android:orientation="vertical"
-    android:weightSum="10"
     android:background="@color/lighty_blue">
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="0dp"
-       android:layout_weight="1"
-       android:layout_gravity="right"
-       android:orientation="vertical"
-
-       >
-       <ImageView
-           android:layout_width="24dp"
-           android:layout_height="24dp"
-           android:src="@drawable/ic_baseline_menu_24"
-           android:layout_gravity="right"
-           android:layout_margin="20dp"
-           android:id="@+id/ham_menu"/>
-
-   </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/bingologo"/>
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_rawRes="@raw/home_background1"
+            android:scaleType="fitXY"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="7"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        android:weightSum="10"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/create_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="141dp"
-            android:backgroundTint="@color/yellow"
-            android:text="CREATE ROOM" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:orientation="vertical"
 
-        <Button
-            android:id="@+id/join_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="141dp"
-            android:backgroundTint="@color/yellow"
-            android:text="JOIN ROOM" />
+            >
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_baseline_menu_24"
+                android:layout_gravity="right"
+                android:layout_margin="20dp"
+                android:id="@+id/ham_menu"
+                app:tint="@color/black" />
 
-        <Button
-            android:id="@+id/exit_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="190dp"
-            android:width="141dp"
-            android:backgroundTint="@color/red"
-            android:text="EXIT" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bingologo"/>
 
-        <Button
-            android:id="@+id/logout_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="141dp"
-            android:backgroundTint="@color/red"
-            android:text="Log out" />
+        </LinearLayout>
 
-        <android.widget.Button
-            android:id="@+id/start_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:width="141dp"
-            android:background="@drawable/gradient1"
-            android:text="Start"
-            android:textColor="@color/white" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
-            android:text="Version 1.0.0" />
+            <android.widget.Button
+                android:id="@+id/create_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="141dp"
+                android:text="CREATE ROOM"
+                android:textColor="@color/white"
+                android:background="@drawable/gradient1"/>
 
+            <android.widget.Button
+                android:id="@+id/join_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="141dp"
+                android:text="JOIN ROOM"
+                android:textColor="@color/white"
+                android:background="@drawable/gradient1"
+                android:layout_marginTop="20dp"/>
+
+            <android.widget.Button
+                android:id="@+id/logout_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:width="141dp"
+                android:background="@drawable/gradient2"
+                android:textColor="@color/white"
+                android:text="Log out" />
+
+            <android.widget.Button
+                android:id="@+id/exit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="141dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/gradient2"
+                android:textColor="@color/white"
+                android:text="EXIT" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="90dp"
+                android:text="Version 1.0.0" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
-</LinearLayout>
+
+</FrameLayout>
