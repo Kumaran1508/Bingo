@@ -16,14 +16,16 @@
         android:layout_weight="9"
         android:textColor="@color/white"
         />
-    <Button
+    <android.widget.Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/click_btn"
         android:text="kick"
-        android:backgroundTint="@color/red"
+        android:textColor="@color/white"
+        android:background="@drawable/gradient2"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:layout_marginVertical="5dp"/>
 
 </LinearLayout>

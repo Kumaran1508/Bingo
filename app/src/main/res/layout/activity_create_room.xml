@@ -26,11 +26,12 @@
         android:id="@+id/players_recycler"
         android:layout_gravity="center"/>
 
-    <Button
+    <android.widget.Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/new_button"
+        android:background="@drawable/gradient1"
         android:text="Start"
+        android:textColor="@color/white"
         android:layout_gravity="center"
         android:width="141dp"
         android:id="@+id/start_btn"/>

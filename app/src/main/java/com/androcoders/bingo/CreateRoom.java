@@ -45,6 +45,8 @@ public class CreateRoom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_room);
 
+        getSupportActionBar().hide();
+
         room_id=findViewById(R.id.room_id);
         players=findViewById(R.id.players_recycler);
         start=findViewById(R.id.start_btn);
