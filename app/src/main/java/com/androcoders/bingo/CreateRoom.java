@@ -2,6 +2,7 @@ package com.androcoders.bingo;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -76,6 +77,7 @@ public class CreateRoom extends AppCompatActivity {
 
 
         adaptor = new PlayerAdaptor(getApplicationContext(),players_list,isOwner);
+        players.addItemDecoration(new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.HORIZONTAL));
         players.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         players.setAdapter(adaptor);
         players.setHasFixedSize(true);

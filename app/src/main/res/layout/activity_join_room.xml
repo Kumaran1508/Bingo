@@ -29,12 +29,12 @@
         android:background="@drawable/editable_bg"
         android:id="@+id/roomcode"/>
 
-    <Button
+    <android.widget.Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Join"
         android:layout_marginTop="15dp"
-        android:background="@drawable/new_button"
+        android:background="@drawable/gradient1"
         android:theme="@style/Theme.Bingo"
         style="@style/Theme.Bingo"
         android:id="@+id/join"/>

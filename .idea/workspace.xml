@@ -33,8 +33,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ee7919f-f3c4-4172-b86e-cbb5384df66e" name="Default Changelist" comment="home upgraded">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/loginbackground1.json" afterDir="false" />
+    <list default="true" id="4ee7919f-f3c4-4172-b86e-cbb5384df66e" name="Default Changelist" comment="Create room improving....">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
@@ -42,8 +41,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androcoders/bingo/CreateRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/androcoders/bingo/CreateRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_room.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_room.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_loginpage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_loginpage.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/player_room_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/player_room_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_game.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_join_room.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_join_room.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626341651137</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Create room improving....">
+      <created>1626360647432</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1626360647432</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -330,7 +336,8 @@
     <MESSAGE value="minor bug fixes" />
     <MESSAGE value="splash upgraded" />
     <MESSAGE value="home upgraded" />
-    <option name="LAST_COMMIT_MESSAGE" value="home upgraded" />
+    <MESSAGE value="Create room improving...." />
+    <option name="LAST_COMMIT_MESSAGE" value="Create room improving...." />
   </component>
   <component name="WindowStateProjectService">
     <state x="286" y="158" key="#PSD" timestamp="1626250447821">
@@ -338,10 +345,10 @@
     </state>
     <state x="286" y="158" key="#PSD/0.0.1536.824@0.0.1536.824" timestamp="1626250447821" />
     <state x="358" y="199" key="#PSD/0.0.1920.1040@0.0.1920.1040" timestamp="1626159170204" />
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1625557894410">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1626410346976">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1625557894410" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1626410346976" />
     <state x="432" y="218" key="AndroidCreateResourceFileDialog" timestamp="1626330976902">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -408,10 +415,14 @@
     </state>
     <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1626246978791" />
     <state x="346" y="72" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1626159151955" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1626341659409">
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1626360649399">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1626341659409" />
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1626360649399" />
+    <state x="471" y="221" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog" timestamp="1626412441640">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="471" y="221" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog/0.0.1536.824@0.0.1536.824" timestamp="1626412441640" />
     <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625549993623">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
