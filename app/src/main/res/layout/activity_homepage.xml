@@ -38,7 +38,6 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_baseline_menu_24"
                 android:layout_gravity="right"
                 android:layout_margin="20dp"
                 android:id="@+id/ham_menu"

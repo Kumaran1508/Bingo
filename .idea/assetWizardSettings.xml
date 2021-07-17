@@ -92,7 +92,7 @@
                                               <map>
                                                 <entry key="color" value="000000" />
                                                 <entry key="imagePath" value="D:\Data\Android\Projects\Bingo\app\src\main\res\drawable\bingologo.png" />
-                                                <entry key="scalingPercent" value="57" />
+                                                <entry key="scalingPercent" value="67" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -124,7 +124,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="legacyIconShape" value="NONE" />
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="ffffff" />
                                     </map>
                                   </option>
                                 </PersistentState>

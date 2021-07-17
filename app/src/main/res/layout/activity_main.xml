@@ -18,7 +18,7 @@
             app:lottie_rawRes="@raw/splash_background"
             android:scaleType="fitXY"
             app:lottie_autoPlay="true"
-            android:scaleType="fitXY"/>
+            />
 
     </LinearLayout>
 

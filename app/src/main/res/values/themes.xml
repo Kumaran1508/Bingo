@@ -12,8 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="buttonTint">@color/yellow</item>
-        <item name="buttonStyle">@drawable/new_button</item>
+
     </style>
 
     <style name="Theme.Bingo.Button" parent="Theme.MaterialComponents.Light.NoActionBar"></style>
