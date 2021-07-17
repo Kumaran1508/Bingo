@@ -36,6 +36,7 @@ public class JoinRoomActivity extends AppCompatActivity {
          join=findViewById(R.id.join);
         account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         join.setEnabled(false);
+        getSupportActionBar().hide();
 
 
         join.setOnClickListener(new View.OnClickListener() {

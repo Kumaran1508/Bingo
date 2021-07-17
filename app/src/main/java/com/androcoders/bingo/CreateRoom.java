@@ -55,6 +55,7 @@ public class CreateRoom extends AppCompatActivity {
 //        Toast.makeText(this, ""+getIntent().getStringExtra("id"), Toast.LENGTH_SHORT).show();
 
         start.setEnabled(false);
+        getSupportActionBar().hide();
         
     }
 

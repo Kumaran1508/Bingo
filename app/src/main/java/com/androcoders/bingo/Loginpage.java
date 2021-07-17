@@ -48,6 +48,7 @@ public class Loginpage extends AppCompatActivity {
                 .requestProfile()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        getSupportActionBar().hide();
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
