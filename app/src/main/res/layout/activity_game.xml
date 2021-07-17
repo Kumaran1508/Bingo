@@ -292,7 +292,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/line"
+                    android:background="@drawable/cross"
                     android:rotation="45"
                     android:scaleX="1.2"/>
 
@@ -300,7 +300,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/line"
+                    android:background="@drawable/cross"
                     android:rotation="135"
                     android:scaleX="1.2"/>
 
@@ -318,9 +318,9 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/line"
+                            android:background="@drawable/cross"
                             android:rotation="0"
-                            android:scaleX="1.2"/>
+                            android:scaleX="0.85"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -331,9 +331,9 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/line"
+                            android:background="@drawable/cross"
                             android:rotation="0"
-                            android:scaleX="1.2"/>
+                            android:scaleX="0.85"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -344,9 +344,9 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/line"
+                            android:background="@drawable/cross"
                             android:rotation="0"
-                            android:scaleX="1.2"/>
+                            android:scaleX="0.85"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -357,9 +357,9 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/line"
+                            android:background="@drawable/cross"
                             android:rotation="0"
-                            android:scaleX="1.2"/>
+                            android:scaleX="0.85"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -370,9 +370,9 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/line"
+                            android:background="@drawable/cross"
                             android:rotation="0"
-                            android:scaleX="1.2"/>
+                            android:scaleX="0.85"/>
 
                     </LinearLayout>
 
@@ -393,9 +393,9 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/line"
+                            android:background="@drawable/cross"
                             android:rotation="0"
-                            android:scaleX="1.2"/>
+                            android:scaleX="0.85"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -406,9 +406,9 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/line"
+                            android:background="@drawable/cross"
                             android:rotation="0"
-                            android:scaleX="1.2"/>
+                            android:scaleX="0.85"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -419,9 +419,9 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/line"
+                            android:background="@drawable/cross"
                             android:rotation="0"
-                            android:scaleX="1.2"/>
+                            android:scaleX="0.85"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -432,9 +432,9 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/line"
+                            android:background="@drawable/cross"
                             android:rotation="0"
-                            android:scaleX="1.2"/>
+                            android:scaleX="0.85"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -445,22 +445,13 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/line"
+                            android:background="@drawable/cross"
                             android:rotation="0"
-                            android:scaleX="1.2"/>
+                            android:scaleX="0.85"/>
 
                     </LinearLayout>
 
                 </LinearLayout>
-
-
-
-
-
-
-
-
-
 
             </FrameLayout>
 
@@ -477,51 +468,56 @@
         android:layout_weight="2"
         android:weightSum="5">
 
-<!--        <android.widget.Button-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="B"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:background="@drawable/gradient3"-->
-<!--            android:id="@+id/b_btn"/>-->
-<!--        <android.widget.Button-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="I"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:background="@drawable/gradient3"-->
-<!--            android:id="@+id/i_btn"/>-->
-<!--        <android.widget.Button-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="N"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:background="@drawable/gradient3"-->
-<!--            android:id="@+id/n_btn"/>-->
-<!--        <android.widget.Button-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="G"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:background="@drawable/gradient3"-->
-<!--            android:id="@+id/g_btn"/>-->
-<!--        <android.widget.Button-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:text="O"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:background="@drawable/gradient3"-->
-<!--            android:id="@+id/o_btn"/>-->
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="B"
+            android:textColor="@color/white"
+            android:id="@+id/b_btn"
+            android:background="@drawable/gradient4"/>
+
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="I"
+            android:textColor="@color/white"
+            android:id="@+id/i_btn"
+            android:background="@drawable/gradient4"/>
+
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="N"
+            android:textColor="@color/white"
+            android:id="@+id/n_btn"
+            android:background="@drawable/gradient4"/>
+
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="G"
+            android:textColor="@color/white"
+            android:id="@+id/g_btn"
+            android:background="@drawable/gradient4"/>
+
+        <android.widget.Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="O"
+            android:textColor="@color/white"
+            android:id="@+id/o_btn"
+            android:background="@drawable/gradient4"/>
+
 
 
     </LinearLayout>
