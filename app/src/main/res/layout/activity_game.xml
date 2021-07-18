@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity"
     >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            app:lottie_rawRes="@raw/gamebg"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

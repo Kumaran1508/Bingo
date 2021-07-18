@@ -108,7 +108,7 @@ public class CreateRoom extends AppCompatActivity {
                 }
                 adaptor.notifyDataSetChanged();
 
-                if (players_list.size()>1)
+                if (players_list.size()>=1)
                     start.setEnabled(true);
                 else
                     start.setEnabled(false);

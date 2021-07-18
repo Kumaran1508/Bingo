@@ -24,19 +24,11 @@ public class GameActivity extends AppCompatActivity {
             number.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!isFilled){
-                        number.setText(""+val);
-                        number.setTextColor(getColor(R.color.white));
-                        val++;
-                        if(val>25) isFilled=true;
-
-                    }
-                    else{
-                        number.setBackground(getDrawable(R.drawable.gradient2));
-                    }
+                    onNumberClick(number);
                 }
             });
         }
+
 
         int lines[]={R.id.diagonal1,R.id.diagonal2,R.id.row1,R.id.row2,R.id.row3,R.id.row4,R.id.row5,R.id.column1,R.id.column2,R.id.column3,R.id.column4,R.id.column5};
 
@@ -44,6 +36,20 @@ public class GameActivity extends AppCompatActivity {
         for (int i=0;i<lines.length;i++){
             View line=findViewById(lines[i]);
             line.setVisibility(View.INVISIBLE);
+        }
+    }
+
+
+    void onNumberClick(Button number){
+        if (!isFilled){
+            number.setText(""+val);
+            number.setTextColor(getColor(R.color.white));
+            val++;
+            if(val>25) isFilled=true;
+
+        }
+        else{
+            number.setBackground(getDrawable(R.drawable.gradient2));
         }
     }
 }
