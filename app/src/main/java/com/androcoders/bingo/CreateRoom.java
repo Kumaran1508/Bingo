@@ -40,6 +40,7 @@ public class CreateRoom extends AppCompatActivity {
     private ArrayList<Player> players_list=new ArrayList<>();
     private PlayerAdaptor adaptor;
     private boolean isOwner;
+    private boolean inmatch=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,10 +130,11 @@ public class CreateRoom extends AppCompatActivity {
                 .addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                if(value.getBoolean("isStarted")){
+                if(value.getBoolean("isStarted") && !inmatch){
+                    inmatch=true;
                     getIntent().setClass(getApplicationContext(),GameActivity.class);
                     startActivity(getIntent());
-                    finish();
+                    finishActivity(RESULT_OK);
                 }
             }
         });
