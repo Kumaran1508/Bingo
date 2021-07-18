@@ -159,6 +159,7 @@ public class CreateRoom extends AppCompatActivity {
             }
         });
 
+        getIntent().putExtra("room_key",roomkey);
 
     }
 
