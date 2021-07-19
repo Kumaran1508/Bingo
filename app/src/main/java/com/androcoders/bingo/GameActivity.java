@@ -102,12 +102,12 @@ public class GameActivity extends AppCompatActivity {
             number.setTextColor(getColor(R.color.white));
             val++;
             if(val>25){
-                isFilled=true;
                 firestore.collection("rooms").document(String.valueOf(roomkey)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         String count = documentSnapshot.getString("filled_count");
-                        firestore.collection("rooms").document(String.valueOf(roomkey)).update("filled_count",String.valueOf(Integer.valueOf(count)+1));
+                        updateFilledPlayers(count);
+                        isFilled=true;
                     }
                 });
             }
@@ -133,5 +133,8 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-
+    void updateFilledPlayers(String count){
+        int val = Integer.valueOf(count);
+        firestore.collection("rooms").document(String.valueOf(roomkey)).update("filled_count",String.valueOf(val+1));
+    }
 }
