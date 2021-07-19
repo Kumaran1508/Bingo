@@ -135,6 +135,7 @@ public class CreateRoom extends AppCompatActivity {
                     getIntent().setClass(getApplicationContext(),GameActivity.class);
                     startActivity(getIntent());
                     finishActivity(RESULT_OK);
+                    finish();
                 }
             }
         });
