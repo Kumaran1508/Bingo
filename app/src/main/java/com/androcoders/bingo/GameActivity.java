@@ -27,6 +27,9 @@ public class GameActivity extends AppCompatActivity {
     private int roomkey;
     private String playerid;
     private TextView playerturn;
+    private int numbers[]= {R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.btn5,R.id.btn6,R.id.btn7,R.id.btn8,R.id.btn9,R.id.btn10,R.id.btn11,R.id.btn12,
+            R.id.btn13,R.id.btn14,R.id.btn15,R.id.btn16,R.id.btn17,R.id.btn18,R.id.btn19,R.id.btn20,R.id.btn21,R.id.btn22,R.id.btn23,R.id.btn24,R.id.btn25};
+    private int lines[]={R.id.diagonal1,R.id.diagonal2,R.id.row1,R.id.row2,R.id.row3,R.id.row4,R.id.row5,R.id.column1,R.id.column2,R.id.column3,R.id.column4,R.id.column5};
 
 
     @Override
@@ -40,9 +43,6 @@ public class GameActivity extends AppCompatActivity {
 
         playerturn = findViewById(R.id.player_turn);
 
-        int numbers[] = {R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.btn5,R.id.btn6,R.id.btn7,R.id.btn8,R.id.btn9,R.id.btn10,R.id.btn11,R.id.btn12,
-                R.id.btn13,R.id.btn14,R.id.btn15,R.id.btn16,R.id.btn17,R.id.btn18,R.id.btn19,R.id.btn20,R.id.btn21,R.id.btn22,R.id.btn23,R.id.btn24,R.id.btn25};
-
         for (int i=0;i<numbers.length;i++){
             Button number = findViewById(numbers[i]);
             number.setOnClickListener(new View.OnClickListener() {
@@ -52,10 +52,6 @@ public class GameActivity extends AppCompatActivity {
                 }
             });
         }
-
-
-        int lines[]={R.id.diagonal1,R.id.diagonal2,R.id.row1,R.id.row2,R.id.row3,R.id.row4,R.id.row5,R.id.column1,R.id.column2,R.id.column3,R.id.column4,R.id.column5};
-
 
         for (int i=0;i<lines.length;i++){
             View line=findViewById(lines[i]);
@@ -74,6 +70,13 @@ public class GameActivity extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 current_turn = value.getString("current_turn");
                 playerturn.setText(current_turn);
+
+                String striked_number = value.getString("striked_number");
+                for (int i=0;i<numbers.length;i++){
+                    Button button = findViewById(numbers[i]);
+                    if (striked_number.contentEquals(button.getText().toString()))
+                        button.setBackground(getDrawable(R.drawable.gradient2));
+                }
             }
         });
 
@@ -85,6 +88,7 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     void onNumberClick(Button number){
@@ -98,6 +102,8 @@ public class GameActivity extends AppCompatActivity {
         else if (isFilled){
             if (current_turn.contentEquals(playerid)){
                 number.setBackground(getDrawable(R.drawable.gradient2));
+
+                firestore.collection("rooms").document(String.valueOf(roomkey)).update("striked_number",number.getText().toString());
 
                 String next_player;
 

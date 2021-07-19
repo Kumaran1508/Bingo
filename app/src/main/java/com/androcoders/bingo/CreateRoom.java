@@ -147,6 +147,7 @@ public class CreateRoom extends AppCompatActivity {
         room.put("isStarted",false);
         room.put("owner",account.getId());
         room.put("current_turn",account.getId());
+        room.put("striked_number","0");
 
         firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).set(room);
 
