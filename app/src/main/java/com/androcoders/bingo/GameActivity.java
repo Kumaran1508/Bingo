@@ -106,8 +106,8 @@ public class GameActivity extends AppCompatActivity {
                 firestore.collection("rooms").document(String.valueOf(roomkey)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        long count = documentSnapshot.getLong("filled_count");
-                        firestore.collection("rooms").document(String.valueOf(roomkey)).update("filled_count",String.valueOf(count+1));
+                        String count = documentSnapshot.getString("filled_count");
+                        firestore.collection("rooms").document(String.valueOf(roomkey)).update("filled_count",String.valueOf(Integer.valueOf(count)+1));
                     }
                 });
             }
