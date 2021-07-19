@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class GameActivity extends AppCompatActivity {
     private int val=1;
     private boolean isFilled = false;
+    private boolean isReady = false;
     private String current_turn;
     private ArrayList<String> players = new ArrayList<>();
     private FirebaseFirestore firestore =FirebaseFirestore.getInstance();
@@ -77,6 +78,10 @@ public class GameActivity extends AppCompatActivity {
                     if (striked_number.contentEquals(button.getText().toString()))
                         button.setBackground(getDrawable(R.drawable.gradient2));
                 }
+
+                if (value.getString("filled_count").contentEquals(value.getString("total_players")))
+                    isReady = true;
+
             }
         });
 
@@ -96,10 +101,19 @@ public class GameActivity extends AppCompatActivity {
             number.setText(""+val);
             number.setTextColor(getColor(R.color.white));
             val++;
-            if(val>25) isFilled=true;
+            if(val>25){
+                isFilled=true;
+                firestore.collection("rooms").document(String.valueOf(roomkey)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        long count = documentSnapshot.getLong("filled_count");
+                        firestore.collection("rooms").document(String.valueOf(roomkey)).update("filled_count",String.valueOf(count+1));
+                    }
+                });
+            }
 
         }
-        else if (isFilled){
+        else if (isFilled && isReady){
             if (current_turn.contentEquals(playerid)){
                 number.setBackground(getDrawable(R.drawable.gradient2));
 
