@@ -217,7 +217,7 @@ public class GameActivity extends AppCompatActivity {
                 }
 
                 if (!nums.get(2).isEnabled() && !nums.get(7).isEnabled() && !nums.get(12).isEnabled()
-                        && !nums.get(17).isEnabled() && !nums.get(27).isEnabled()) {
+                        && !nums.get(17).isEnabled() && !nums.get(22).isEnabled()) {
                     if (crosses.get(7).getVisibility() == View.INVISIBLE) {
                         crosses.get(7).setVisibility(View.VISIBLE);
                         bingo++;
@@ -225,7 +225,7 @@ public class GameActivity extends AppCompatActivity {
                 }
 
                 if (!nums.get(3).isEnabled() && !nums.get(8).isEnabled() && !nums.get(13).isEnabled()
-                        && !nums.get(18).isEnabled() && !nums.get(28).isEnabled()) {
+                        && !nums.get(18).isEnabled() && !nums.get(23).isEnabled()) {
                     if (crosses.get(8).getVisibility() == View.INVISIBLE) {
                         crosses.get(8).setVisibility(View.VISIBLE);
                         bingo++;
