@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,9 +29,14 @@ public class GameActivity extends AppCompatActivity {
     private int roomkey;
     private String playerid;
     private TextView playerturn;
+    private ArrayList<Button> nums = new ArrayList<>();
+    private ArrayList<View> crosses = new ArrayList<>();
+    private int bingo = 0;
+
+
     private int numbers[]= {R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.btn5,R.id.btn6,R.id.btn7,R.id.btn8,R.id.btn9,R.id.btn10,R.id.btn11,R.id.btn12,
             R.id.btn13,R.id.btn14,R.id.btn15,R.id.btn16,R.id.btn17,R.id.btn18,R.id.btn19,R.id.btn20,R.id.btn21,R.id.btn22,R.id.btn23,R.id.btn24,R.id.btn25};
-    private int lines[]={R.id.diagonal1,R.id.diagonal2,R.id.row1,R.id.row2,R.id.row3,R.id.row4,R.id.row5,R.id.column1,R.id.column2,R.id.column3,R.id.column4,R.id.column5};
+    private int lines[]={R.id.row1,R.id.row2,R.id.row3,R.id.row4,R.id.row5,R.id.column1,R.id.column2,R.id.column3,R.id.column4,R.id.column5,R.id.diagonal1,R.id.diagonal2};
 
 
     @Override
@@ -52,11 +58,13 @@ public class GameActivity extends AppCompatActivity {
                     onNumberClick(number);
                 }
             });
+            nums.add(number);
         }
 
         for (int i=0;i<lines.length;i++){
             View line=findViewById(lines[i]);
             line.setVisibility(View.INVISIBLE);
+            crosses.add(line);
         }
 
 
@@ -116,6 +124,8 @@ public class GameActivity extends AppCompatActivity {
         else if (isFilled && isReady){
             if (current_turn.contentEquals(playerid)){
                 number.setBackground(getDrawable(R.drawable.gradient2));
+                number.setEnabled(false);
+                checkBingo();
 
                 firestore.collection("rooms").document(String.valueOf(roomkey)).update("striked_number",number.getText().toString());
 
@@ -136,5 +146,95 @@ public class GameActivity extends AppCompatActivity {
     void updateFilledPlayers(String count){
         int val = Integer.valueOf(count);
         firestore.collection("rooms").document(String.valueOf(roomkey)).update("filled_count",String.valueOf(val+1));
+    }
+
+
+    void checkBingo(){
+        if (!nums.get(0).isEnabled() && !nums.get(1).isEnabled() && !nums.get(2).isEnabled()
+                && !nums.get(3).isEnabled() && !nums.get(4).isEnabled())
+            if (crosses.get(0).getVisibility()==View.INVISIBLE) {
+                crosses.get(0).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(5).isEnabled() && !nums.get(6).isEnabled() && !nums.get(7).isEnabled()
+                && !nums.get(8).isEnabled() && !nums.get(9).isEnabled())
+            if (crosses.get(1).getVisibility()==View.INVISIBLE) {
+                crosses.get(1).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(10).isEnabled() && !nums.get(11).isEnabled() && !nums.get(12).isEnabled()
+                && !nums.get(13).isEnabled() && !nums.get(14).isEnabled())
+            if (crosses.get(2).getVisibility()==View.INVISIBLE) {
+                crosses.get(2).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(15).isEnabled() && !nums.get(16).isEnabled() && !nums.get(17).isEnabled()
+                && !nums.get(18).isEnabled() && !nums.get(19).isEnabled())
+            if (crosses.get(3).getVisibility()==View.INVISIBLE) {
+                crosses.get(3).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(20).isEnabled() && !nums.get(21).isEnabled() && !nums.get(22).isEnabled()
+                && !nums.get(23).isEnabled() && !nums.get(24).isEnabled())
+            if (crosses.get(4).getVisibility()==View.INVISIBLE) {
+                crosses.get(4).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(0).isEnabled() && !nums.get(5).isEnabled() && !nums.get(10).isEnabled()
+                && !nums.get(15).isEnabled() && !nums.get(20).isEnabled())
+            if (crosses.get(5).getVisibility()==View.INVISIBLE) {
+                crosses.get(5).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(1).isEnabled() && !nums.get(6).isEnabled() && !nums.get(11).isEnabled()
+                && !nums.get(16).isEnabled() && !nums.get(21).isEnabled())
+            if (crosses.get(6).getVisibility()==View.INVISIBLE) {
+                crosses.get(6).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(2).isEnabled() && !nums.get(7).isEnabled() && !nums.get(12).isEnabled()
+                && !nums.get(17).isEnabled() && !nums.get(27).isEnabled())
+            if (crosses.get(7).getVisibility()==View.INVISIBLE) {
+                crosses.get(7).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(3).isEnabled() && !nums.get(8).isEnabled() && !nums.get(13).isEnabled()
+                && !nums.get(18).isEnabled() && !nums.get(28).isEnabled())
+            if (crosses.get(8).getVisibility()==View.INVISIBLE) {
+                crosses.get(8).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(4).isEnabled() && !nums.get(9).isEnabled() && !nums.get(14).isEnabled()
+                && !nums.get(19).isEnabled() && !nums.get(24).isEnabled())
+            if (crosses.get(9).getVisibility()==View.INVISIBLE) {
+                crosses.get(9).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(0).isEnabled() && !nums.get(6).isEnabled() && !nums.get(12).isEnabled()
+                && !nums.get(18).isEnabled() && !nums.get(24).isEnabled())
+            if (crosses.get(10).getVisibility()==View.INVISIBLE) {
+                crosses.get(10).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (!nums.get(4).isEnabled() && !nums.get(8).isEnabled() && !nums.get(12).isEnabled()
+                && !nums.get(16).isEnabled() && !nums.get(20).isEnabled())
+            if (crosses.get(11).getVisibility()==View.INVISIBLE) {
+                crosses.get(11).setVisibility(View.VISIBLE);
+                bingo++;
+            }
+
+        if (bingo>=5)
+            Toast.makeText(this, "BINGO", Toast.LENGTH_LONG).show();
     }
 }
