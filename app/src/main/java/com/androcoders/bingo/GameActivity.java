@@ -84,15 +84,15 @@ public class GameActivity extends AppCompatActivity {
                 String striked_number = value.getString("striked_number");
                 for (int i=0;i<numbers.length;i++){
                     Button button = findViewById(numbers[i]);
-                    if (striked_number.contentEquals(button.getText().toString()) && isReady)
+                    if (striked_number.contentEquals(button.getText().toString()) && isReady) {
                         button.setBackground(getDrawable(R.drawable.gradient2));
                         try {
                             button.setEnabled(false);
                             checkBingo();
+                        } catch (Exception e) {
+                            Log.d("Enable fail", e.getMessage());
                         }
-                        catch (Exception e){
-                            Log.d("Enable fail",e.getMessage());
-                        }
+                    }
                 }
 
                 if (value.getString("filled_count").contentEquals(value.getString("total_players")))
