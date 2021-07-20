@@ -159,104 +159,108 @@ public class GameActivity extends AppCompatActivity {
 
     void checkBingo(){
         if (isReady){
-            if (!nums.get(0).isEnabled() && !nums.get(1).isEnabled() && !nums.get(2).isEnabled()
-                    && !nums.get(3).isEnabled() && !nums.get(4).isEnabled()) {
-                if (crosses.get(0).getVisibility() == View.INVISIBLE) {
-                    crosses.get(0).setVisibility(View.VISIBLE);
-                    bingo++;
+            try {
+                if (!nums.get(0).isEnabled() && !nums.get(1).isEnabled() && !nums.get(2).isEnabled()
+                        && !nums.get(3).isEnabled() && !nums.get(4).isEnabled()) {
+                    if (crosses.get(0).getVisibility() == View.INVISIBLE) {
+                        crosses.get(0).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(5).isEnabled() && !nums.get(6).isEnabled() && !nums.get(7).isEnabled()
-                    && !nums.get(8).isEnabled() && !nums.get(9).isEnabled()) {
-                if (crosses.get(1).getVisibility() == View.INVISIBLE) {
-                    crosses.get(1).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(5).isEnabled() && !nums.get(6).isEnabled() && !nums.get(7).isEnabled()
+                        && !nums.get(8).isEnabled() && !nums.get(9).isEnabled()) {
+                    if (crosses.get(1).getVisibility() == View.INVISIBLE) {
+                        crosses.get(1).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(10).isEnabled() && !nums.get(11).isEnabled() && !nums.get(12).isEnabled()
-                    && !nums.get(13).isEnabled() && !nums.get(14).isEnabled()) {
-                if (crosses.get(2).getVisibility() == View.INVISIBLE) {
-                    crosses.get(2).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(10).isEnabled() && !nums.get(11).isEnabled() && !nums.get(12).isEnabled()
+                        && !nums.get(13).isEnabled() && !nums.get(14).isEnabled()) {
+                    if (crosses.get(2).getVisibility() == View.INVISIBLE) {
+                        crosses.get(2).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(15).isEnabled() && !nums.get(16).isEnabled() && !nums.get(17).isEnabled()
-                    && !nums.get(18).isEnabled() && !nums.get(19).isEnabled()) {
-                if (crosses.get(3).getVisibility() == View.INVISIBLE) {
-                    crosses.get(3).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(15).isEnabled() && !nums.get(16).isEnabled() && !nums.get(17).isEnabled()
+                        && !nums.get(18).isEnabled() && !nums.get(19).isEnabled()) {
+                    if (crosses.get(3).getVisibility() == View.INVISIBLE) {
+                        crosses.get(3).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(20).isEnabled() && !nums.get(21).isEnabled() && !nums.get(22).isEnabled()
-                    && !nums.get(23).isEnabled() && !nums.get(24).isEnabled()) {
-                if (crosses.get(4).getVisibility() == View.INVISIBLE) {
-                    crosses.get(4).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(20).isEnabled() && !nums.get(21).isEnabled() && !nums.get(22).isEnabled()
+                        && !nums.get(23).isEnabled() && !nums.get(24).isEnabled()) {
+                    if (crosses.get(4).getVisibility() == View.INVISIBLE) {
+                        crosses.get(4).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(0).isEnabled() && !nums.get(5).isEnabled() && !nums.get(10).isEnabled()
-                    && !nums.get(15).isEnabled() && !nums.get(20).isEnabled()) {
-                if (crosses.get(5).getVisibility() == View.INVISIBLE) {
-                    crosses.get(5).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(0).isEnabled() && !nums.get(5).isEnabled() && !nums.get(10).isEnabled()
+                        && !nums.get(15).isEnabled() && !nums.get(20).isEnabled()) {
+                    if (crosses.get(5).getVisibility() == View.INVISIBLE) {
+                        crosses.get(5).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(1).isEnabled() && !nums.get(6).isEnabled() && !nums.get(11).isEnabled()
-                    && !nums.get(16).isEnabled() && !nums.get(21).isEnabled()) {
-                if (crosses.get(6).getVisibility() == View.INVISIBLE) {
-                    crosses.get(6).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(1).isEnabled() && !nums.get(6).isEnabled() && !nums.get(11).isEnabled()
+                        && !nums.get(16).isEnabled() && !nums.get(21).isEnabled()) {
+                    if (crosses.get(6).getVisibility() == View.INVISIBLE) {
+                        crosses.get(6).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(2).isEnabled() && !nums.get(7).isEnabled() && !nums.get(12).isEnabled()
-                    && !nums.get(17).isEnabled() && !nums.get(27).isEnabled()) {
-                if (crosses.get(7).getVisibility() == View.INVISIBLE) {
-                    crosses.get(7).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(2).isEnabled() && !nums.get(7).isEnabled() && !nums.get(12).isEnabled()
+                        && !nums.get(17).isEnabled() && !nums.get(27).isEnabled()) {
+                    if (crosses.get(7).getVisibility() == View.INVISIBLE) {
+                        crosses.get(7).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(3).isEnabled() && !nums.get(8).isEnabled() && !nums.get(13).isEnabled()
-                    && !nums.get(18).isEnabled() && !nums.get(28).isEnabled()) {
-                if (crosses.get(8).getVisibility() == View.INVISIBLE) {
-                    crosses.get(8).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(3).isEnabled() && !nums.get(8).isEnabled() && !nums.get(13).isEnabled()
+                        && !nums.get(18).isEnabled() && !nums.get(28).isEnabled()) {
+                    if (crosses.get(8).getVisibility() == View.INVISIBLE) {
+                        crosses.get(8).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(4).isEnabled() && !nums.get(9).isEnabled() && !nums.get(14).isEnabled()
-                    && !nums.get(19).isEnabled() && !nums.get(24).isEnabled()) {
-                if (crosses.get(9).getVisibility() == View.INVISIBLE) {
-                    crosses.get(9).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(4).isEnabled() && !nums.get(9).isEnabled() && !nums.get(14).isEnabled()
+                        && !nums.get(19).isEnabled() && !nums.get(24).isEnabled()) {
+                    if (crosses.get(9).getVisibility() == View.INVISIBLE) {
+                        crosses.get(9).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(0).isEnabled() && !nums.get(6).isEnabled() && !nums.get(12).isEnabled()
-                    && !nums.get(18).isEnabled() && !nums.get(24).isEnabled()) {
-                if (crosses.get(10).getVisibility() == View.INVISIBLE) {
-                    crosses.get(10).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(0).isEnabled() && !nums.get(6).isEnabled() && !nums.get(12).isEnabled()
+                        && !nums.get(18).isEnabled() && !nums.get(24).isEnabled()) {
+                    if (crosses.get(10).getVisibility() == View.INVISIBLE) {
+                        crosses.get(10).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (!nums.get(4).isEnabled() && !nums.get(8).isEnabled() && !nums.get(12).isEnabled()
-                    && !nums.get(16).isEnabled() && !nums.get(20).isEnabled()) {
-                if (crosses.get(11).getVisibility() == View.INVISIBLE) {
-                    crosses.get(11).setVisibility(View.VISIBLE);
-                    bingo++;
+                if (!nums.get(4).isEnabled() && !nums.get(8).isEnabled() && !nums.get(12).isEnabled()
+                        && !nums.get(16).isEnabled() && !nums.get(20).isEnabled()) {
+                    if (crosses.get(11).getVisibility() == View.INVISIBLE) {
+                        crosses.get(11).setVisibility(View.VISIBLE);
+                        bingo++;
+                    }
                 }
-            }
 
-            if (bingo>=5)
-                Toast.makeText(this, "BINGO", Toast.LENGTH_LONG).show();
+                if (bingo>=5)
+                    Toast.makeText(this, "BINGO", Toast.LENGTH_LONG).show();
+            }catch (Exception e){
+                Toast.makeText(this, "check bingo error "+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
