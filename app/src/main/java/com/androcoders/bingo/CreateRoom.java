@@ -57,7 +57,6 @@ public class CreateRoom extends AppCompatActivity {
 //        Toast.makeText(this, ""+getIntent().getStringExtra("id"), Toast.LENGTH_SHORT).show();
 
         start.setEnabled(false);
-        getSupportActionBar().hide();
 
         currentplayer = GoogleSignIn.getLastSignedInAccount(getApplicationContext()).getId();
         
@@ -74,7 +73,6 @@ public class CreateRoom extends AppCompatActivity {
         else
         {
             roomkey=getIntent().getIntExtra("room_key",0);
-            addPlayersListener();
             room_id.setText("Room Id\n"+roomkey);
             start.setVisibility(View.GONE);
 
@@ -83,9 +81,12 @@ public class CreateRoom extends AppCompatActivity {
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     if (documentSnapshot.getString("owner").contentEquals(currentplayer)){
                         isOwner=true;
+                        start.setVisibility(View.VISIBLE);
                     }
+                    addPlayersListener();
                 }
             });
+
         }
 
 
@@ -115,17 +116,21 @@ public class CreateRoom extends AppCompatActivity {
         firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                players_list.clear();
-                for (DocumentSnapshot document: value) {
-                    Player player= new Player(document.getString("player_name"),document.getId());
-                    players_list.add(player);
-                }
-                adaptor.notifyDataSetChanged();
+                try {
+                    players_list.clear();
+                    for (DocumentSnapshot document: value) {
+                        Player player= new Player(document.getString("player_name"),document.getId());
+                        players_list.add(player);
+                    }
+                    adaptor.notifyDataSetChanged();
 
-                if (players_list.size()>=1)
-                    start.setEnabled(true);
-                else
-                    start.setEnabled(false);
+                    if (players_list.size()>=1)
+                        start.setEnabled(true);
+                    else
+                        start.setEnabled(false);
+                }catch (Exception e){
+                    Toast.makeText(CreateRoom.this, "Players listener onEvent error", Toast.LENGTH_SHORT).show();
+                }
          }
         });
 
