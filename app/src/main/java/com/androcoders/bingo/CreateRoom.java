@@ -129,7 +129,13 @@ public class CreateRoom extends AppCompatActivity {
                     .addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                            Toast.makeText(CreateRoom.this, "player document changed", Toast.LENGTH_SHORT).show();
+                            if (!value.exists()){
+                                getIntent().setClass(getApplicationContext(),JoinRoomActivity.class);
+                                startActivity(getIntent());
+                                finishActivity(RESULT_OK);
+                                finish();
+                            }
+
                         }
                     });
         }
