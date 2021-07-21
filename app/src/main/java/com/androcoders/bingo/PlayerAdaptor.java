@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,13 +31,17 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
         this.isOwner=isOwner;
         this.roomkey=roomkey;
 
-        FirebaseFirestore.getInstance().collection("rooms").document(roomkey)
-                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                ownerId = documentSnapshot.getString("owner");
-            }
-        });
+        try{
+            FirebaseFirestore.getInstance().collection("rooms").document(roomkey)
+                    .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    ownerId = documentSnapshot.getString("owner");
+                }
+            });
+        }catch (Exception e){
+            Toast.makeText(context, "error retreiving owner name", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
