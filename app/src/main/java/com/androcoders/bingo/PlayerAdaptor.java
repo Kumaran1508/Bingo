@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -28,8 +30,13 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
         this.isOwner=isOwner;
         this.roomkey=roomkey;
 
-        if (isOwner)
-            ownerId = GoogleSignIn.getLastSignedInAccount(context).getId();
+        FirebaseFirestore.getInstance().collection("rooms").document(roomkey)
+                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                ownerId = documentSnapshot.getString("owner");
+            }
+        });
 
     }
 
@@ -46,7 +53,7 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
     public void onBindViewHolder(@NonNull PlayerAdaptor.ViewHolder holder, int position) {
         holder.playername.setText(list.get(position).getPlayername());
 
-        if (isOwner && list.get(position).getPlayerid().contentEquals(ownerId))
+        if (list.get(position).getPlayerid().contentEquals(ownerId))
             holder.kickbutton.setVisibility(View.INVISIBLE);
 
         holder.kickbutton.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +85,9 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
             playername=itemView.findViewById(R.id.player_name);
             kickbutton =itemView.findViewById(R.id.click_btn);
 
-            if (!isOwner)
+            String currentUser = GoogleSignIn.getLastSignedInAccount(context).getId();
+
+            if (!ownerId.contentEquals(currentUser))
                 kickbutton.setVisibility(View.GONE);
 
 

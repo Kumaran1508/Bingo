@@ -258,6 +258,10 @@ public class GameActivity extends AppCompatActivity {
 
                 if (bingo>=5)
                     Toast.makeText(this, "BINGO", Toast.LENGTH_LONG).show();
+
+
+
+
             }catch (Exception e){
                 Toast.makeText(this, "check bingo error "+e.getMessage(), Toast.LENGTH_SHORT).show();
             }

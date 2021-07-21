@@ -76,8 +76,16 @@ public class CreateRoom extends AppCompatActivity {
             roomkey=getIntent().getIntExtra("room_key",0);
             addPlayersListener();
             room_id.setText("Room Id\n"+roomkey);
-            isOwner=false;
             start.setVisibility(View.GONE);
+
+            FirebaseFirestore.getInstance().collection("rooms").document(String.valueOf(roomkey)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    if (documentSnapshot.getString("owner").contentEquals(currentplayer)){
+                        isOwner=true;
+                    }
+                }
+            });
         }
 
 
