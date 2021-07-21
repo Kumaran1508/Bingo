@@ -58,6 +58,8 @@ public class JoinRoomActivity extends AppCompatActivity {
                                  intent.putExtra("room_key",Integer.valueOf(code.getText().toString()));
                                  intent.setClass(getApplicationContext(),CreateRoom.class);
                                  startActivity(intent);
+                                 finishActivity(RESULT_OK);
+                                 finish();
                              }
                              else{
                                  Toast.makeText(JoinRoomActivity.this, "You can't join now, The game has already started ", Toast.LENGTH_LONG).show();

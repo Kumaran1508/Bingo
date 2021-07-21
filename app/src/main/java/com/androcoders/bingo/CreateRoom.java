@@ -118,7 +118,7 @@ public class CreateRoom extends AppCompatActivity {
                     start.setEnabled(true);
                 else
                     start.setEnabled(false);
-            }
+         }
         });
 
         try {
@@ -132,6 +132,7 @@ public class CreateRoom extends AppCompatActivity {
                             if (!value.exists()){
                                 getIntent().setClass(getApplicationContext(),JoinRoomActivity.class);
                                 startActivity(getIntent());
+                                Toast.makeText(CreateRoom.this, "oops you have been kicked", Toast.LENGTH_SHORT).show();
                                 finishActivity(RESULT_OK);
                                 finish();
                             }
