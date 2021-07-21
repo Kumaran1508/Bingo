@@ -90,9 +90,9 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
             playername=itemView.findViewById(R.id.player_name);
             kickbutton =itemView.findViewById(R.id.click_btn);
 
-            String currentUser = GoogleSignIn.getLastSignedInAccount(context).getId();
 
-            if (!ownerId.contentEquals(currentUser))
+
+            if (!isOwner)
                 kickbutton.setVisibility(View.GONE);
 
 
