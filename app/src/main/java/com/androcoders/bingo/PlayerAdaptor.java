@@ -23,7 +23,7 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
   private ArrayList<Player> list;
   private boolean isOwner;
   private String roomkey;
-  private String ownerId;
+  private String ownerId="";
 
     public PlayerAdaptor(Context context, ArrayList<Player> list,boolean isOwner,String roomkey) {
         this.context = context;
