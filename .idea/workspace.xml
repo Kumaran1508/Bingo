@@ -24,7 +24,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ee7919f-f3c4-4172-b86e-cbb5384df66e" name="Default Changelist" comment="crash fixed true I think so">
+    <list default="true" id="4ee7919f-f3c4-4172-b86e-cbb5384df66e" name="Default Changelist" comment="crash fixed true lol">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androcoders/bingo/PlayerAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/androcoders/bingo/PlayerAdaptor.java" afterDir="false" />
     </list>
@@ -445,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626855935189</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="crash fixed true lol">
+      <created>1626856261938</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1626856261938</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -461,7 +472,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dummy" />
     <MESSAGE value="Room Generated" />
     <MESSAGE value="minor bug fixes" />
     <MESSAGE value="splash upgraded" />
@@ -486,7 +496,8 @@
     <MESSAGE value="crash fixed" />
     <MESSAGE value="crash fixedddddd 100%" />
     <MESSAGE value="crash fixed true I think so" />
-    <option name="LAST_COMMIT_MESSAGE" value="crash fixed true I think so" />
+    <MESSAGE value="crash fixed true lol" />
+    <option name="LAST_COMMIT_MESSAGE" value="crash fixed true lol" />
   </component>
   <component name="WindowStateProjectService">
     <state x="312" y="187" key="#PSD" timestamp="1626851947559">
@@ -494,10 +505,10 @@
     </state>
     <state x="312" y="187" key="#PSD/0.0.1536.824@0.0.1536.824" timestamp="1626851947559" />
     <state x="358" y="199" key="#PSD/0.0.1920.1040@0.0.1920.1040" timestamp="1626159170204" />
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1626620795266">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1626868759650">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1626620795266" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1626868759650" />
     <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1626589092094">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -511,10 +522,10 @@
     </state>
     <state x="432" y="218" key="AndroidCreateResourceFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1626530108985" />
     <state x="540" y="275" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626421793984" />
-    <state x="565" y="159" key="AndroidProcessChooserDialog" timestamp="1626856112641">
+    <state x="565" y="159" key="AndroidProcessChooserDialog" timestamp="1626856907855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="565" y="159" key="AndroidProcessChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1626856112641" />
+    <state x="565" y="159" key="AndroidProcessChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1626856907855" />
     <state x="395" y="0" width="745" height="592" key="CommitChangelistDialog2" timestamp="1625037741394">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -527,38 +538,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1625130448117" />
-    <state width="1491" height="208" key="GridCell.Tab.0.bottom" timestamp="1626856112813">
+    <state width="1491" height="209" key="GridCell.Tab.0.bottom" timestamp="1626869239537">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1626856112813" />
-    <state width="1491" height="208" key="GridCell.Tab.0.center" timestamp="1626856112813">
+    <state width="1491" height="209" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1626869239537" />
+    <state width="1491" height="209" key="GridCell.Tab.0.center" timestamp="1626869239537">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1626856112813" />
-    <state width="1491" height="208" key="GridCell.Tab.0.left" timestamp="1626856112813">
+    <state width="1491" height="209" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1626869239537" />
+    <state width="1491" height="209" key="GridCell.Tab.0.left" timestamp="1626869239537">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1626856112813" />
-    <state width="1491" height="208" key="GridCell.Tab.0.right" timestamp="1626856112813">
+    <state width="1491" height="209" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1626869239537" />
+    <state width="1491" height="209" key="GridCell.Tab.0.right" timestamp="1626869239537">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1626856112813" />
-    <state width="1491" height="208" key="GridCell.Tab.1.bottom" timestamp="1626856135266">
+    <state width="1491" height="209" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1626869239537" />
+    <state width="1491" height="208" key="GridCell.Tab.1.bottom" timestamp="1626857319473">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="208" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1626856135266" />
-    <state width="1491" height="208" key="GridCell.Tab.1.center" timestamp="1626856135266">
+    <state width="1491" height="208" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1626857319473" />
+    <state width="1491" height="208" key="GridCell.Tab.1.center" timestamp="1626857319473">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="208" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1626856135266" />
-    <state width="1491" height="208" key="GridCell.Tab.1.left" timestamp="1626856135266">
+    <state width="1491" height="208" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1626857319473" />
+    <state width="1491" height="208" key="GridCell.Tab.1.left" timestamp="1626857319473">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="208" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1626856135266" />
-    <state width="1491" height="208" key="GridCell.Tab.1.right" timestamp="1626856135266">
+    <state width="1491" height="208" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1626857319473" />
+    <state width="1491" height="208" key="GridCell.Tab.1.right" timestamp="1626857319473">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="208" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1626856135266" />
+    <state width="1491" height="208" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1626857319473" />
     <state x="147" y="65" key="MergeDialog" timestamp="1626851935233">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -572,10 +583,10 @@
     </state>
     <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1626520584389" />
     <state x="346" y="72" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1626159151955" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1626855936811">
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1626856263848">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1626855936811" />
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1626856263848" />
     <state width="517" height="415" key="XDebugger.FullValuePopup" timestamp="1626850443508">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -646,8 +657,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/androcoders/bingo/PlayerAdaptor.java</url>
-          <line>95</line>
+          <line>111</line>
           <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/androcoders/bingo/PlayerAdaptor.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/androcoders/bingo/PlayerAdaptor.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

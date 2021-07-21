@@ -77,6 +77,22 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
     }
 
     @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        super.onViewRecycled(holder);
+
+        try{
+            if (isOwner){
+                if (list.get(holder.getLayoutPosition()).getPlayerid().contentEquals(ownerId))
+                    holder.kickbutton.setVisibility(View.INVISIBLE);
+                else
+                    holder.kickbutton.setVisibility(View.VISIBLE);
+            }
+        }catch (Exception e){
+            Toast.makeText(context, "OnviewRecycled index out of bound nu nenakiren", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
     public int getItemCount() {
         return list.size();
     }
