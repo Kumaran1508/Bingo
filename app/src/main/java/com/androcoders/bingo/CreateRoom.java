@@ -41,6 +41,7 @@ public class CreateRoom extends AppCompatActivity {
     private PlayerAdaptor adaptor;
     private boolean isOwner;
     private boolean inmatch=false;
+    private String currentplayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,8 @@ public class CreateRoom extends AppCompatActivity {
 
         start.setEnabled(false);
         getSupportActionBar().hide();
+
+        currentplayer = GoogleSignIn.getLastSignedInAccount(getApplicationContext()).getId();
         
     }
 
@@ -78,15 +81,17 @@ public class CreateRoom extends AppCompatActivity {
         }
 
 
-        adaptor = new PlayerAdaptor(getApplicationContext(),players_list,isOwner);
+
+
+    }
+
+    void addPlayersListener(){
+        adaptor = new PlayerAdaptor(getApplicationContext(),players_list,isOwner,String.valueOf(roomkey));
         players.addItemDecoration(new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.HORIZONTAL));
         players.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         players.setAdapter(adaptor);
         players.setHasFixedSize(true);
 
-    }
-
-    void addPlayersListener(){
         firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -115,6 +120,22 @@ public class CreateRoom extends AppCompatActivity {
                     start.setEnabled(false);
             }
         });
+
+        try {
+            firebaseFirestore.collection("rooms")
+                    .document(String.valueOf(roomkey))
+                    .collection("players")
+                    .document(currentplayer)
+                    .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                            Toast.makeText(CreateRoom.this, "player document changed", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+        catch (Exception e){
+            Toast.makeText(this, "Error occured on listener", Toast.LENGTH_SHORT).show();
+        }
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override

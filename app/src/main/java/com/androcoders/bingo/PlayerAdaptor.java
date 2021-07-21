@@ -10,17 +10,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 
 public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder> {
   private  Context context;
   private ArrayList<Player> list;
   private boolean isOwner;
+  private String roomkey;
+  private String ownerId;
 
-    public PlayerAdaptor(Context context, ArrayList<Player> list,boolean isOwner) {
+    public PlayerAdaptor(Context context, ArrayList<Player> list,boolean isOwner,String roomkey) {
         this.context = context;
         this.list = list;
         this.isOwner=isOwner;
+        this.roomkey=roomkey;
+
+        if (isOwner)
+            ownerId = GoogleSignIn.getLastSignedInAccount(context).getId();
+
     }
 
     @NonNull
@@ -35,6 +45,22 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull PlayerAdaptor.ViewHolder holder, int position) {
         holder.playername.setText(list.get(position).getPlayername());
+
+        if (isOwner && list.get(position).getPlayerid().contentEquals(ownerId))
+            holder.kickbutton.setVisibility(View.INVISIBLE);
+
+        holder.kickbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseFirestore firestore =FirebaseFirestore.getInstance();
+
+                firestore.collection("rooms")
+                        .document(roomkey)
+                        .collection("players")
+                        .document(list.get(position).getPlayerid())
+                        .delete();
+            }
+        });
 
     }
 
@@ -54,6 +80,8 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
 
             if (!isOwner)
                 kickbutton.setVisibility(View.GONE);
+
+
 
         }
     }
