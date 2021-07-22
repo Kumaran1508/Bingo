@@ -25,7 +25,7 @@ public class GameActivity extends AppCompatActivity {
     private boolean isFilled = false;
     private boolean isReady = false;
     private String current_turn;
-    private ArrayList<String> players = new ArrayList<>();
+    private ArrayList<Player> players = new ArrayList<>();
     private FirebaseFirestore firestore =FirebaseFirestore.getInstance();
     private int roomkey;
     private String playerid;
@@ -33,6 +33,7 @@ public class GameActivity extends AppCompatActivity {
     private ArrayList<Button> nums = new ArrayList<>();
     private ArrayList<View> crosses = new ArrayList<>();
     private int bingo = 0;
+    private Button B,I,N,G,O;
 
 
     private int numbers[]= {R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.btn5,R.id.btn6,R.id.btn7,R.id.btn8,R.id.btn9,R.id.btn10,R.id.btn11,R.id.btn12,
@@ -68,6 +69,11 @@ public class GameActivity extends AppCompatActivity {
             crosses.add(line);
         }
 
+        B = findViewById(R.id.b_btn);
+        I = findViewById(R.id.i_btn);
+        N = findViewById(R.id.n_btn);
+        G = findViewById(R.id.g_btn);
+        O = findViewById(R.id.o_btn);
 
     }
 
@@ -79,7 +85,12 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 current_turn = value.getString("current_turn");
-                playerturn.setText(current_turn);
+                for (Player player : players){
+                    if(player.getPlayerid().contentEquals(current_turn))
+                        playerturn.setText(player.getPlayername());
+                        break;
+                }
+
 
                 String striked_number = value.getString("striked_number");
                 for (int i=0;i<numbers.length;i++){
@@ -105,7 +116,7 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                    players.add(documentSnapshot.getId());
+                    players.add(new Player(documentSnapshot.getString("player_name"),documentSnapshot.getId()));
                 }
             }
         });
@@ -137,15 +148,20 @@ public class GameActivity extends AppCompatActivity {
 
                 firestore.collection("rooms").document(String.valueOf(roomkey)).update("striked_number",number.getText().toString());
 
-                String next_player;
+                String next_player_id=playerid;
 
-                if (players.indexOf(playerid)==players.size()-1)
-                    next_player = players.get(0);
-                else
-                    next_player = players.get(players.indexOf(playerid)+1);
+                for (Player player : players){
+                    if (player.getPlayerid().contentEquals(playerid)){
+                        if (players.indexOf(player)==players.size()-1)
+                            next_player_id = players.get(0).getPlayerid();
+                        else
+                            next_player_id = players.get(players.indexOf(player)+1).getPlayerid();
+
+                    }
+                }
 
 
-                firestore.collection("rooms").document(String.valueOf(roomkey)).update("current_turn",next_player);
+                firestore.collection("rooms").document(String.valueOf(roomkey)).update("current_turn",next_player_id);
             }
 
         }
@@ -256,8 +272,11 @@ public class GameActivity extends AppCompatActivity {
                     }
                 }
 
+                strikeBingo();
+
                 if (bingo>=5)
                     Toast.makeText(this, "BINGO", Toast.LENGTH_LONG).show();
+
 
 
 
@@ -266,5 +285,16 @@ public class GameActivity extends AppCompatActivity {
                 Toast.makeText(this, "check bingo error "+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    void strikeBingo(){
+        if (bingo>0) B.setBackground(getDrawable(R.drawable.gradient_orange));
+        if (bingo>1) I.setBackground(getDrawable(R.drawable.gradient_orange));
+        if (bingo>2) N.setBackground(getDrawable(R.drawable.gradient_orange));
+        if (bingo>3) G.setBackground(getDrawable(R.drawable.gradient_orange));
+        if (bingo>4) O.setBackground(getDrawable(R.drawable.gradient_orange));
+
+        firestore.collection("rooms").document(String.valueOf(roomkey))
+                .collection("players").document(playerid).update("bingo",bingo);
     }
 }
