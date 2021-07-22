@@ -88,7 +88,7 @@ public class GameActivity extends AppCompatActivity {
                 for (Player player : players){
                     if(player.getPlayerid().contentEquals(current_turn))
                         playerturn.setText(player.getPlayername());
-                        break;
+
                 }
 
 
