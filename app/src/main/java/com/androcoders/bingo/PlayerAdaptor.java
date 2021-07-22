@@ -32,7 +32,8 @@ public class PlayerAdaptor extends RecyclerView.Adapter<PlayerAdaptor.ViewHolder
         this.roomkey=roomkey;
 
         try{
-            FirebaseFirestore.getInstance().collection("rooms").document(roomkey)
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+            firestore.collection("rooms").document(roomkey)
                     .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {

@@ -42,6 +42,7 @@ public class CreateRoom extends AppCompatActivity {
     private boolean isOwner;
     private boolean inmatch=false;
     private String currentplayer;
+    private boolean iskicked=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +102,8 @@ public class CreateRoom extends AppCompatActivity {
         players.setAdapter(adaptor);
         players.setHasFixedSize(true);
 
+
+
         firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -113,7 +116,7 @@ public class CreateRoom extends AppCompatActivity {
             }
         });
 
-        firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").addSnapshotListener(CreateRoom.this,new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 try {
@@ -139,17 +142,20 @@ public class CreateRoom extends AppCompatActivity {
                     .document(String.valueOf(roomkey))
                     .collection("players")
                     .document(currentplayer)
-                    .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    .addSnapshotListener(CreateRoom.this,new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                             if (!value.exists()){
+                                iskicked=true;
                                 getIntent().setClass(getApplicationContext(),JoinRoomActivity.class);
                                 startActivity(getIntent());
                                 Toast.makeText(CreateRoom.this, "oops you have been kicked", Toast.LENGTH_SHORT).show();
                                 finishActivity(RESULT_OK);
                                 finish();
                             }
-
+                            
+                            if (value==null)
+                                Toast.makeText(CreateRoom.this, "null obj onEvent", Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -171,7 +177,7 @@ public class CreateRoom extends AppCompatActivity {
 
         firebaseFirestore.collection("rooms")
                 .document(String.valueOf(roomkey))
-                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                .addSnapshotListener(CreateRoom.this,new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 if(value.getBoolean("isStarted") && !inmatch){
