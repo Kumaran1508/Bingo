@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Resultpage"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/lighty_blue">
+
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="125dp"
+        android:layout_height="150dp"
+        app:lottie_rawRes="@raw/trophywinner"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_marginBottom="50dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/result_rec"
+        android:layout_marginTop="20dp"
+        />
+
+
+    <android.widget.Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PLAY AGAIN"
+        android:id="@+id/ready"
+        android:width="147dp"
+        android:background="@drawable/gradient1"
+        android:layout_marginTop="10dp"/>
+
+    <android.widget.Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back to home"
+        android:id="@+id/b_2_h"
+        android:width="147dp"
+        android:background="@drawable/gradient1"
+        android:layout_marginTop="10dp"/>
+
+
+
+
+
+
+
+
+</LinearLayout>
