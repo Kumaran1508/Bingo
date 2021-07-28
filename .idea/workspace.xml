@@ -24,11 +24,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ee7919f-f3c4-4172-b86e-cbb5384df66e" name="Default Changelist" comment="Resultpage done">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-06-2021_12_15__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-06-2021_12_15__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="4ee7919f-f3c4-4172-b86e-cbb5384df66e" name="Default Changelist" comment="etho pannen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_resultpage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_resultpage.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/resultitem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/resultitem.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -480,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626937855986</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="etho pannen">
+      <created>1627455906130</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1627455906130</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -496,7 +500,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create room improving...." />
     <MESSAGE value="number filling done" />
     <MESSAGE value="player turn (bug : activity restarts)" />
     <MESSAGE value="activity restart fixed" />
@@ -521,7 +524,8 @@
     <MESSAGE value="20210722 1116" />
     <MESSAGE value="Current Turn displays player name" />
     <MESSAGE value="Resultpage done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resultpage done" />
+    <MESSAGE value="etho pannen" />
+    <option name="LAST_COMMIT_MESSAGE" value="etho pannen" />
   </component>
   <component name="WindowStateProjectService">
     <state x="312" y="187" key="#PSD" timestamp="1626851947559">
