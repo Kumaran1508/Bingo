@@ -14,8 +14,14 @@
         android:layout_height="wrap_content"
         android:text="Join room"
         android:textSize="40dp"
-        android:paddingBottom="11dp"
         android:fontFamily="casual"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        app:lottie_rawRes="@raw/join_room"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
 
     <EditText
         android:layout_width="200dp"
