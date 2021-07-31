@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class Resultpage extends AppCompatActivity {
     private ResultAdapter resultAdapter;
     private FirebaseFirestore firestore=FirebaseFirestore.getInstance();
     private ArrayList<Player> list=new ArrayList<>();
-    private String key="42714";
+    private int key=0;
 
 
 
@@ -35,8 +36,9 @@ public class Resultpage extends AppCompatActivity {
         resultrecycler.setHasFixedSize(true);
         resultrecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         resultrecycler.setAdapter(resultAdapter);
+        key=getIntent().getIntExtra("roomkey",0);
 
-        firestore.collection("rooms").document(key).collection("players").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        firestore.collection("rooms").document(String.valueOf(key)).collection("players").orderBy("score", Query.Direction.DESCENDING).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(DocumentSnapshot documentSnapshot:queryDocumentSnapshots)

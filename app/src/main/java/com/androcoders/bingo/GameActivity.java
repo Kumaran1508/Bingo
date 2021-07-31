@@ -3,6 +3,8 @@ package com.androcoders.bingo;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,12 +30,14 @@ public class GameActivity extends AppCompatActivity {
     private ArrayList<Player> players = new ArrayList<>();
     private FirebaseFirestore firestore =FirebaseFirestore.getInstance();
     private int roomkey;
-    private String playerid;
+    private String playerid,owner;
     private TextView playerturn;
     private ArrayList<Button> nums = new ArrayList<>();
     private ArrayList<View> crosses = new ArrayList<>();
     private int bingo = 0;
     private Button B,I,N,G,O;
+
+
 
 
     private int numbers[]= {R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.btn5,R.id.btn6,R.id.btn7,R.id.btn8,R.id.btn9,R.id.btn10,R.id.btn11,R.id.btn12,
@@ -75,6 +79,15 @@ public class GameActivity extends AppCompatActivity {
         G = findViewById(R.id.g_btn);
         O = findViewById(R.id.o_btn);
 
+        firestore.collection("rooms").document(String.valueOf(roomkey)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                owner = documentSnapshot.getString("owner");
+
+            }
+        });
+
     }
 
     @Override
@@ -88,7 +101,6 @@ public class GameActivity extends AppCompatActivity {
                 for (Player player : players){
                     if(player.getPlayerid().contentEquals(current_turn))
                         playerturn.setText(player.getPlayername());
-
                 }
 
 
@@ -109,7 +121,21 @@ public class GameActivity extends AppCompatActivity {
                 if (value.getString("filled_count").contentEquals(value.getString("total_players")))
                     isReady = true;
 
+                if(!value.getBoolean("isStarted"))
+                {
+                    finishgame();
+                }
+                if(!value.getBoolean("isStarted") && value.getString("filled_count").contentEquals("0"))
+                {
+                    Intent intent= new Intent();
+                    intent.putExtra("roomkey",roomkey);
+                    intent.setClass(getApplicationContext(),Resultpage.class);
+                    startActivity(intent);
+                    finish();
+                }
+
             }
+
         });
 
         firestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -122,6 +148,8 @@ public class GameActivity extends AppCompatActivity {
         });
 
     }
+
+
 
     void onNumberClick(Button number){
         if (!isFilled && number.getText().toString().contentEquals("")){
@@ -275,7 +303,10 @@ public class GameActivity extends AppCompatActivity {
                 strikeBingo();
 
                 if (bingo>=5)
-                    Toast.makeText(this, "BINGO", Toast.LENGTH_LONG).show();
+                {
+                    firestore.collection("rooms").document("" + roomkey).update("isStarted",false);
+
+                }
 
 
 
@@ -296,5 +327,35 @@ public class GameActivity extends AppCompatActivity {
 
         firestore.collection("rooms").document(String.valueOf(roomkey))
                 .collection("players").document(playerid).update("bingo",bingo);
+    }
+    private void finishgame() {
+
+        if(owner.contentEquals(playerid))
+        {
+            firestore.collection("rooms").document(""+roomkey).update("filled_count","0","striked_number","0");
+
+            firestore.collection("rooms").document(""+roomkey).collection("players").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                @Override
+                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+                    for(DocumentSnapshot documentSnapshot:queryDocumentSnapshots)
+                    {
+                        long score1=documentSnapshot.getLong("score");
+                        long bingoscore=documentSnapshot.getLong("bingo");
+                        if(bingoscore>=5)
+                        {
+                            score1++;
+                            firestore.collection("rooms").document(""+roomkey).collection("players").document(documentSnapshot.getId())
+                                    .update("score",score1);
+                        }
+
+
+                    }
+
+
+                }
+            });
+        }
+
     }
 }
