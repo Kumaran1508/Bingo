@@ -26,6 +26,7 @@ public class GameActivity extends AppCompatActivity {
     private int val=1;
     private boolean isFilled = false;
     private boolean isReady = false;
+    private boolean gameover = false;
     private String current_turn;
     private ArrayList<Player> players = new ArrayList<>();
     private FirebaseFirestore firestore =FirebaseFirestore.getInstance();
@@ -79,7 +80,7 @@ public class GameActivity extends AppCompatActivity {
         G = findViewById(R.id.g_btn);
         O = findViewById(R.id.o_btn);
 
-        firestore.collection("rooms").document(String.valueOf(roomkey)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        firestore.collection("rooms").document(String.valueOf(roomkey)).get().addOnSuccessListener(GameActivity.this,new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
 
@@ -94,7 +95,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        firestore.collection("rooms").document(String.valueOf(roomkey)).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        firestore.collection("rooms").document(String.valueOf(roomkey)).addSnapshotListener(GameActivity.this,new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 current_turn = value.getString("current_turn");
@@ -131,6 +132,7 @@ public class GameActivity extends AppCompatActivity {
                     intent.putExtra("roomkey",roomkey);
                     intent.setClass(getApplicationContext(),Resultpage.class);
                     startActivity(intent);
+                    finishActivity(0);
                     finish();
                 }
 
@@ -138,7 +140,7 @@ public class GameActivity extends AppCompatActivity {
 
         });
 
-        firestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        firestore.collection("rooms").document(String.valueOf(roomkey)).collection("players").get().addOnSuccessListener(GameActivity.this,new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots){
@@ -157,7 +159,7 @@ public class GameActivity extends AppCompatActivity {
             number.setTextColor(getColor(R.color.white));
             val++;
             if(val>25){
-                firestore.collection("rooms").document(String.valueOf(roomkey)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                firestore.collection("rooms").document(String.valueOf(roomkey)).get().addOnSuccessListener(GameActivity.this,new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         String count = documentSnapshot.getString("filled_count");
@@ -330,11 +332,12 @@ public class GameActivity extends AppCompatActivity {
     }
     private void finishgame() {
 
-        if(owner.contentEquals(playerid))
+        if(owner.contentEquals(playerid) && !gameover)
         {
+            gameover=true;
             firestore.collection("rooms").document(""+roomkey).update("filled_count","0","striked_number","0");
 
-            firestore.collection("rooms").document(""+roomkey).collection("players").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            firestore.collection("rooms").document(""+roomkey).collection("players").get().addOnSuccessListener(GameActivity.this,new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 

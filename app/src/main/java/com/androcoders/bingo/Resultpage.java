@@ -29,6 +29,7 @@ public class Resultpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultpage);
+        getSupportActionBar().hide();
 
 
         resultrecycler=findViewById(R.id.result_rec);
