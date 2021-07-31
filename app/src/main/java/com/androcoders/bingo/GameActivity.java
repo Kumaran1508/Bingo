@@ -125,7 +125,7 @@ public class GameActivity extends AppCompatActivity {
                 {
                     finishgame();
                 }
-                if(!value.getBoolean("isStarted") && value.getString("filled_count").contentEquals("0"))
+                if(value.getBoolean("isMatchover"))
                 {
                     Intent intent= new Intent();
                     intent.putExtra("roomkey",roomkey);
@@ -352,6 +352,7 @@ public class GameActivity extends AppCompatActivity {
 
                     }
 
+                    firestore.collection("rooms").document(""+roomkey).update("isMatchover",true);
 
                 }
             });

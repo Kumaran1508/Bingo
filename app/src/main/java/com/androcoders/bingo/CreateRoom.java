@@ -199,6 +199,7 @@ public class CreateRoom extends AppCompatActivity {
         room.put("current_turn",account.getId());
         room.put("striked_number","0");
         room.put("filled_count","0");
+        room.put("isMatchover",false);
 
         firebaseFirestore.collection("rooms").document(String.valueOf(roomkey)).set(room);
 
