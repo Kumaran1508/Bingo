@@ -31,7 +31,7 @@ public class GameActivity extends AppCompatActivity {
     private ArrayList<Player> players = new ArrayList<>();
     private FirebaseFirestore firestore =FirebaseFirestore.getInstance();
     private int roomkey;
-    private String playerid,owner;
+    private String playerid="",owner;
     private TextView playerturn,filling;
     private ArrayList<Button> nums = new ArrayList<>();
     private ArrayList<View> crosses = new ArrayList<>();
@@ -109,36 +109,46 @@ public class GameActivity extends AppCompatActivity {
                 String striked_number = value.getString("striked_number");
                 for (int i=0;i<numbers.length;i++){
                     Button button = findViewById(numbers[i]);
-                    if (striked_number.contentEquals(button.getText().toString()) && isReady) {
+                    try {
+                        if (striked_number.contentEquals(button.getText().toString()) && isReady) {
                         button.setBackground(getDrawable(R.drawable.gradient2));
-                        try {
+
                             button.setEnabled(false);
                             checkBingo();
-                        } catch (Exception e) {
-                            Log.d("Enable fail", e.getMessage());
                         }
+                    } catch (Exception e) {
+                        Log.d("Enable fail", e.getMessage());
                     }
                 }
 
-                if (value.getString("filled_count").contentEquals(value.getString("total_players"))) {
+                try{
+                    if (value.getString("filled_count").contentEquals(value.getString("total_players"))) {
                     isReady = true;
                     filling.setVisibility(View.INVISIBLE);
+                    }
                 }
+                catch (Exception e){}
 
+                try{
+                    if(!value.getBoolean("isStarted"))
+                    {
+                        finishgame();
+                    }
+                }catch (Exception e){ }
 
-                if(!value.getBoolean("isStarted"))
-                {
-                    finishgame();
+                try {
+                    if(value.getBoolean("isMatchover"))
+                    {
+                        Intent intent= new Intent();
+                        intent.putExtra("roomkey",roomkey);
+                        intent.setClass(getApplicationContext(),Resultpage.class);
+                        startActivity(intent);
+                        finishActivity(0);
+                        finish();
+                    }
                 }
-                if(value.getBoolean("isMatchover"))
-                {
-                    Intent intent= new Intent();
-                    intent.putExtra("roomkey",roomkey);
-                    intent.setClass(getApplicationContext(),Resultpage.class);
-                    startActivity(intent);
-                    finishActivity(0);
-                    finish();
-                }
+                catch (Exception e){}
+
 
             }
 
