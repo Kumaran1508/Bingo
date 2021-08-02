@@ -25,7 +25,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Player's turn"
+                android:textSize="25dp"
+                android:fontFamily="casual"
                 android:id="@+id/player_turn"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Waiting for other players to fill..."
+                android:layout_marginTop="10dp"
+                android:id="@+id/filling"/>
 
         </LinearLayout>
 

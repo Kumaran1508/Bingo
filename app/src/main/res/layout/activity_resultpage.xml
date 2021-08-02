@@ -76,14 +76,7 @@
         android:background="@drawable/gradient1"
         android:layout_marginTop="10dp"/>
 
-    <android.widget.Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back to home"
-        android:id="@+id/b_2_h"
-        android:width="147dp"
-        android:background="@drawable/gradient1"
-        android:layout_marginTop="10dp"/>
+
 
 
 

@@ -32,7 +32,7 @@ public class GameActivity extends AppCompatActivity {
     private FirebaseFirestore firestore =FirebaseFirestore.getInstance();
     private int roomkey;
     private String playerid,owner;
-    private TextView playerturn;
+    private TextView playerturn,filling;
     private ArrayList<Button> nums = new ArrayList<>();
     private ArrayList<View> crosses = new ArrayList<>();
     private int bingo = 0;
@@ -56,6 +56,7 @@ public class GameActivity extends AppCompatActivity {
         playerid = GoogleSignIn.getLastSignedInAccount(getApplicationContext()).getId();
 
         playerturn = findViewById(R.id.player_turn);
+        filling = findViewById(R.id.filling);
 
         for (int i=0;i<numbers.length;i++){
             Button number = findViewById(numbers[i]);
@@ -101,7 +102,7 @@ public class GameActivity extends AppCompatActivity {
                 current_turn = value.getString("current_turn");
                 for (Player player : players){
                     if(player.getPlayerid().contentEquals(current_turn))
-                        playerturn.setText(player.getPlayername());
+                        playerturn.setText(player.getPlayername()+ " 's turn");
                 }
 
 
@@ -119,8 +120,11 @@ public class GameActivity extends AppCompatActivity {
                     }
                 }
 
-                if (value.getString("filled_count").contentEquals(value.getString("total_players")))
+                if (value.getString("filled_count").contentEquals(value.getString("total_players"))) {
                     isReady = true;
+                    filling.setVisibility(View.INVISIBLE);
+                }
+
 
                 if(!value.getBoolean("isStarted"))
                 {
@@ -356,6 +360,9 @@ public class GameActivity extends AppCompatActivity {
                     }
 
                     firestore.collection("rooms").document(""+roomkey).update("isMatchover",true);
+
+
+
 
                 }
             });
