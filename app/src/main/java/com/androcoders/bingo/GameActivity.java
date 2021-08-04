@@ -362,7 +362,10 @@ public class GameActivity extends AppCompatActivity {
                         if(bingoscore>=5)
                         {
                             score1++;
-                            firestore.collection("rooms").document(""+roomkey).collection("players").document(documentSnapshot.getId())
+                            firestore.collection("rooms")
+                                    .document(""+roomkey)
+                                    .collection("players")
+                                    .document(documentSnapshot.getId())
                                     .update("score",score1);
                         }
 

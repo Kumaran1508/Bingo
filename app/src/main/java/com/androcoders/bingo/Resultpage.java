@@ -74,7 +74,7 @@ public class Resultpage extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
                         Intent intent=new Intent();
                         intent.setClass(getApplicationContext(),GameActivity.class);
-                        intent.putExtra("room_key",0);
+                        intent.putExtra("room_key",key);
                         startActivity(intent);
                         finish();
                     }
