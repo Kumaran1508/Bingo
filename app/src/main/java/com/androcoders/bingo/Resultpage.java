@@ -69,22 +69,31 @@ public class Resultpage extends AppCompatActivity {
 
 
 
-                firestore.collection("rooms").document(String.valueOf(key)).update("isMatchover",false,"isStarted",true).addOnSuccessListener(new OnSuccessListener<Void>() {
+                firestore.collection("rooms").document(String.valueOf(key))
+                        .update("isMatchover",false,"isStarted",true);
+                firestore.collection("rooms").document(String.valueOf(key)).collection("players").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for (DocumentSnapshot documentSnapshot:queryDocumentSnapshots){
+                            firestore.collection("rooms")
+                                    .document(""+key)
+                                    .collection("players")
+                                    .document(documentSnapshot.getId())
+                                    .update("bingo",0);
+                        }
                         Intent intent=new Intent();
                         intent.setClass(getApplicationContext(),GameActivity.class);
                         intent.putExtra("room_key",key);
                         startActivity(intent);
                         finish();
+                        finishActivity(RESULT_OK);
                     }
                 });
-
 
             }
         });
 
-        firestore.collection("rooms").document(String.valueOf(key)).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        firestore.collection("rooms").document(String.valueOf(key)).addSnapshotListener(Resultpage.this,new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 
@@ -92,7 +101,7 @@ public class Resultpage extends AppCompatActivity {
                 {
                     Intent intent=new Intent();
                     intent.setClass(getApplicationContext(),GameActivity.class);
-                    intent.putExtra("room_key",0);
+                    intent.putExtra("room_key",key);
                     startActivity(intent);
                     finish();
                 }
