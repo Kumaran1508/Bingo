@@ -5,7 +5,7 @@ plugins {
 
 android {
     compileSdkVersion 36
-    buildToolsVersion "30.0.3"
+    buildToolsVersion "35.0.0"
 
     defaultConfig {
         applicationId "com.teknophase.bingo"
