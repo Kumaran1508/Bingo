@@ -1,8 +1,9 @@
 {
   "project_info": {
     "project_number": "1058282051885",
+    "firebase_url": "https://bingo-46d69-default-rtdb.firebaseio.com",
     "project_id": "bingo-46d69",
-    "storage_bucket": "bingo-46d69.appspot.com"
+    "storage_bucket": "bingo-46d69.firebasestorage.app"
   },
   "client": [
     {
@@ -14,35 +15,80 @@
       },
       "oauth_client": [
         {
-          "client_id": "1058282051885-428umb0tqgl8tqdphv2q0oo74lof51vh.apps.googleusercontent.com",
+          "client_id": "1058282051885-0jtbcnk4v2mtj4s3uqqmevgdlicj5srq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.androcoders.bingo",
-            "certificate_hash": "371077844fc26915690f2712582fe4fcce1f89aa"
+            "certificate_hash": "a0b0e35db774218bee00c61e84983fa96c7c516d"
           }
         },
         {
-          "client_id": "1058282051885-5qgge8ifbcfgsee4e3eie6o6284s1cek.apps.googleusercontent.com",
+          "client_id": "1058282051885-8og5fm7qb7ih7pth8kapb4e0knmtst9l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.androcoders.bingo",
-            "certificate_hash": "c729b521b08624ad2b726c6292cc1cb67f55489b"
+            "certificate_hash": "aa96469d9b83a368d1192348060febd1eba4cc41"
           }
         },
         {
-          "client_id": "1058282051885-7p8jajbimrmgdcl0d13l96ngth2727sf.apps.googleusercontent.com",
+          "client_id": "1058282051885-q65fjd8i7q4ljf93esg4m3v853umnq6t.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.androcoders.bingo",
-            "certificate_hash": "768031d2ab8f82077e0befd70ba4d324e2785cca"
+            "certificate_hash": "10217bb4baca6d9cd18d769666d3ce5192c18dc9"
           }
         },
         {
-          "client_id": "1058282051885-fjlr61amiv7vahsc6badqdufgfrmv9sp.apps.googleusercontent.com",
+          "client_id": "1058282051885-q86hq5okljb4rc1amldsru8n7ko9v46i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhealkquET_gZXP9As7Ob-_qbMmjEtw6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058282051885-grphss423vighe3cr5pfeu1c7roefgk0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058282051885:android:46c2f118c3443c796ddba4",
+        "android_client_info": {
+          "package_name": "com.teknophase.bingo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058282051885-4043m7ctlu227kcahcjmj1n36kff3mp5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.androcoders.bingo",
-            "certificate_hash": "fec8b10623c8a7104b258af050ea476b6293f1bb"
+            "package_name": "com.teknophase.bingo",
+            "certificate_hash": "aa96469d9b83a368d1192348060febd1eba4cc41"
+          }
+        },
+        {
+          "client_id": "1058282051885-grirbt8ej22g4ihvgvg9aa1mefqrv304.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.teknophase.bingo",
+            "certificate_hash": "a0b0e35db774218bee00c61e84983fa96c7c516d"
+          }
+        },
+        {
+          "client_id": "1058282051885-jpenvg3kpltvbntdle3ceir7vap7d965.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.teknophase.bingo",
+            "certificate_hash": "10217bb4baca6d9cd18d769666d3ce5192c18dc9"
           }
         },
         {
