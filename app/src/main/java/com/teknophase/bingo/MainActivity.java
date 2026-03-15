@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Timer;
@@ -14,15 +15,22 @@ public class MainActivity extends AppCompatActivity {
     private TimerTask task;
     Intent intent;
     private Timer time;
-    private FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
+
+    private FirebaseApp firebaseApp;
+
+    private FirebaseFirestore firebaseFirestore;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         getSupportActionBar().hide();
+
+        firebaseApp = FirebaseApp.initializeApp(this);
+        assert firebaseApp != null;
+        firebaseFirestore = FirebaseFirestore.getInstance(firebaseApp);
+
         time=new Timer();
         intent=new Intent();
 
